@@ -1,5 +1,4 @@
 from datasets import load_dataset
-import pandas as pd
 
 # Load the emotion dataset from Hugging Face
 data = load_dataset("dair-ai/emotion")
