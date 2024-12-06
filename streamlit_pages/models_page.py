@@ -59,6 +59,7 @@ def display_models_page():
                 evaluate_model(val_predictions, model_type, "Validation")
 
         # Evaluate on test set
+    st.write('DONT USE THIS IF YOU DIDNT TRAIN THE MODEL FIRST. IT WILL THROW AN EXCEPTION.\n TODO FIX ')
     if st.button("Evaluate on Test set"):
         with st.spinner("Evaluating model on Test set..."):
             test_predictions = st.session_state.trained_model.transform(test_df)
