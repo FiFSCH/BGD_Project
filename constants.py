@@ -5,6 +5,8 @@ HOME_PAGE_NAME = 'Home'
 EDA_PAGE_NAME = 'EDA'
 MODELS_PAGE_NAME = 'Models'
 
+IMAGES_PATH = './images'
+
 PROJECT_GOAL = '''The goal of the project is to explore the Emotion dataset, a collection of English-language Twitter messages categorized into six basic emotions: 
 * Anger 
 * Fear
@@ -31,9 +33,10 @@ LIBRARIES_USED = '''
   * Pandas
   * Numpy
   * Streamlit + streamlit_option_menu
-  '''
+'''
 
 DATA_SET_DESCTIPTION = '''The dataset contains 18 000 rows divided into 2 columns: __text__ and __label__. 
-* __Text:__ twitter message
+* __Text:__ Twitter message
 * __Label:__ Emotion
+
 The data did not require any preprocessing.'''

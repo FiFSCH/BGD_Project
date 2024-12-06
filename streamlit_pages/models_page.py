@@ -4,7 +4,8 @@ from auxilliary_methods import *
 def display_models_page():
     # TODO Move all below to appropriate page
     # TODO STYLING
-
+    st.title("Models")
+    st.title("TODO work in progress!")
     st.write("Select a model and start the training or testing process.")
 
     # Select the model type
