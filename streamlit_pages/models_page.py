@@ -1,12 +1,17 @@
 from pyspark.sql import SparkSession
+import constants
 from auxilliary_methods import *
 
 def display_models_page():
     # TODO Move all below to appropriate page
     # TODO STYLING
-    st.title("Models")
     st.title("TODO work in progress!")
-    st.write("Select a model and start the training or testing process.")
+    st.title("Models")
+    st.markdown(constants.MODELS_INTRO_TEXT)
+
+    with st.expander("Evaluation Metrics"):
+        st.markdown(constants.EVALUATION_METRICS)
+    st.markdown(constants.LINE_SEPARATOR, unsafe_allow_html=True)
 
     # Select the model type
     model_type = st.selectbox(
