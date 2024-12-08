@@ -13,11 +13,12 @@ import constants
 
 
 # Function to save model
-def save_model(model, model_type):
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_save_path = f"hdfs://localhost:9000/bgd/models/{model_type}_pipeline_{timestamp}"
-    model.save(model_save_path)
-    st.write(f"Model saved to: {model_save_path}")
+def save_model(model, model_type, save_model_flag):
+    if save_model_flag:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        model_save_path = f"hdfs://localhost:9000/bgd/models/{model_type}_pipeline_{timestamp}"
+        model.save(model_save_path)
+        st.write(f"Model saved to: {model_save_path}")
 
 
 # Function to evaluate model
@@ -71,7 +72,7 @@ def evaluate_model(predictions, model_type, dataset_name="Validation"):
 
 
 # Function to train the model
-def train_model(model_type, train_data, val_data, test_df):
+def train_model(model_type, train_data, save_model_flag):
     tokenizer = Tokenizer(inputCol="text", outputCol="words")
     hashing_tf = HashingTF(inputCol="words", outputCol="raw_features", numFeatures=20000)
     idf = IDF(inputCol="raw_features", outputCol="features")
@@ -96,6 +97,6 @@ def train_model(model_type, train_data, val_data, test_df):
     trained_model = pipeline.fit(train_data)
 
     # Save the model with timestamped name
-    save_model(trained_model, model_type)
+    save_model(trained_model, model_type, save_model_flag)
 
     return trained_model
