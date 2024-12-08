@@ -21,7 +21,8 @@ The dataset contains __18 000__ rows divided into 2 columns: __text__ and __labe
 * __Label:__ Emotion
 
 ## Prerequisites :white_check_mark:
-* Hadoop - HDFS
+* __Hadoop__ - HDFS
+  
 List of required packages is available in _requirements.txt_ file. 
 
 ## Installation :arrow_down:
