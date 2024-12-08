@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from datetime import datetime
+import constants
 
 
 # Function to save model
@@ -77,13 +78,13 @@ def train_model(model_type, train_data, val_data, test_df):
     label_indexer = StringIndexer(inputCol="label", outputCol="label_index")
 
     # Select model based on argument
-    if model_type == "lr":
+    if model_type == constants.MODEL_LR_DESC:
         model = LogisticRegression(featuresCol="features", labelCol="label_index", maxIter=10)
-    elif model_type == "rf":
+    elif model_type == constants.MODEL_RF_DESC:
         model = RandomForestClassifier(featuresCol="features", labelCol="label_index", numTrees=20)
-    elif model_type == "dt":
+    elif model_type == constants.MODEL_DT_DESC:
         model = DecisionTreeClassifier(featuresCol="features", labelCol="label_index")
-    elif model_type == "nb":
+    elif model_type == constants.MODEL_NB_DESC:
         model = NaiveBayes(featuresCol="features", labelCol="label_index", modelType="multinomial")
     else:
         raise ValueError(f"Unsupported model type: {model_type}")

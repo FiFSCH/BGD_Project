@@ -16,17 +16,8 @@ def display_models_page():
     # Select the model type
     model_type = st.selectbox(
         "Choose a model to train:",
-        ["lr", "rf", "dt", "nb"]
+        [constants.MODEL_LR_DESC, constants.MODEL_RF_DESC, constants.MODEL_DT_DESC, constants.MODEL_NB_DESC]
     )
-
-    model_descriptions = {
-        "lr": "Logistic Regression (Binary and Multiclass classification)",
-        "rf": "Random Forest (Ensemble model for classification)",
-        "dt": "Decision Tree (Classification using tree-based models)",
-        "nb": "Naive Bayes (Probabilistic classification)"
-    }
-
-    st.write(f"**Selected Model:** {model_descriptions[model_type]}")
 
     # Initialize Spark session
     spark = SparkSession.builder \
